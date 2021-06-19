@@ -1,0 +1,245 @@
+$Primaryfont: sans-serif, arial;
+$maincolor: #02473eec;
+$bordercol: #087a73ec;
+$boxcolor: rgb(1, 4, 34);
+$textcolor: rgb(3, 3, 27);
+$whitecolor: #fff;
+$bodycolor: rgb(226, 226, 226);
+$greycolor: grey;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  background-color: $bodycolor;
+  font-family: $Primaryfont;
+}
+
+@mixin mypadding($top, $right, $bottom, $left) {
+  padding: $top $right $bottom $left;
+}
+
+@mixin commonproperties {
+  p {
+    font-size: 0.9rem;
+    color: $greycolor;
+    padding: 1.2rem 0;
+    line-height: 1.9;
+  }
+  h4 {
+    color: $textcolor;
+    font-weight: 600;
+    padding-top: 1.7rem;
+  }
+}
+
+@mixin myborder($px, $type, $color) {
+  border: $px $type $color;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.flex_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+// header starts...........................
+.wrapper {
+  width: 100%;
+  background-color: $maincolor;
+  margin-bottom: 5%;
+  .logo {
+    background-color: $boxcolor;
+    color: $whitecolor;
+    font-size: 2.1rem;
+    font-weight: 600;
+    position: relative;
+    top: 10px;
+    @include mypadding(33px, 25px, 33px, 25px);
+  }
+  ul {
+    display: flex;
+    list-style: none;
+    margin-top: 4.5rem;
+    li {
+      list-style: none;
+      margin-left: 2rem;
+      background-color: $boxcolor;
+      @include mypadding(8px, 20px, 8px, 20px);
+      border-radius: 0.3rem;
+      transition: 1s;
+      a {
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: $whitecolor;
+      }
+      a:hover {
+        color: $greycolor;
+      }
+    }
+    .active {
+      background-color: $bordercol;
+    }
+    li:hover {
+      background-color: $bordercol;
+    }
+  }
+}
+
+// header ends................................................
+// first section starts here
+.first_section {
+  margin-bottom: 2%;
+  background-color: $whitecolor;
+  @include myborder(0.2rem, solid, $bordercol);
+  img {
+    width: 100%;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: $textcolor;
+    margin-top: 15%;
+    margin-left: -18%;
+    line-height: 1.5;
+  }
+}
+
+// first section ends here
+// info section starts here
+.info {
+  section {
+    width: 24%;
+    img {
+      width: 100%;
+      @include myborder(0.3rem, solid, $bordercol);
+      // box-shadow: 0px 30px 25px 0px rgb(8, 54, 50);
+    }
+  }
+  @include commonproperties;
+}
+
+// info section ends here
+// testimonial starts  from here
+.testimonial {
+  margin-top: 2%;
+  margin-bottom: 4%;
+  .featured,
+  .right_section {
+    width: 48%;
+  }
+  @include commonproperties;
+  .small_box {
+    width: 165px;
+    background-color: $boxcolor;
+    color: $whitecolor;
+    text-align: center;
+    padding: 0.6rem 0;
+    position: relative;
+    margin-top: -2.5rem;
+    h3 {
+      letter-spacing: 0.2rem;
+      font-weight: 100;
+    }
+  }
+  .featured {
+    @include myborder(0.3rem, solid, $bordercol);
+    background-color: $whitecolor;
+    padding: 1.5rem;
+    .box {
+      width: 300px;
+      display: flex;
+      margin-top: 1.5rem;
+      img {
+        width: 45%;
+        padding-right: 2rem;
+      }
+      h4 {
+        margin-top: -1.8rem;
+      }
+    }
+  }
+  .right_section {
+    .hairstyle,
+    .bottom {
+      @include myborder(0.3rem, solid, $bordercol);
+      background-color: $maincolor;
+    }
+    .hairstyle {
+      margin-bottom: 7%;
+      padding: 1.5rem;
+      p {
+        margin-top: 2rem;
+        color: $whitecolor;
+      }
+      h4 {
+        margin-left: 80%;
+        color: $whitecolor;
+      }
+    }
+    .bottom {
+      height: 225px;
+      color: $whitecolor;
+      display: flex;
+      img {
+        width: 100%;
+        position: relative;
+        top: -14px;
+      }
+      h5 {
+        font-size: 1.1rem;
+        line-height: 2.2;
+        font-weight: 600;
+        margin-top: 2rem;
+        margin-left: 2.8rem;
+      }
+    }
+  }
+}
+
+// testimonial ends here
+// footer
+footer {
+  color: $whitecolor;
+  padding: 1.9rem 0;
+  h6 {
+    margin-top: 2rem;
+    margin-left: 40%;
+    letter-spacing: 1px;
+    font-size: 0.7rem;
+  }
+  .social {
+    background-color: #21615e;
+    padding-top: 1rem;
+    padding-left: 1.3rem;
+    width: 130px;
+  }
+  .fa {
+    font-size: 1rem;
+    margin-right: 0.6rem;
+    color: $maincolor;
+  }
+  .fa:hover {
+    color: rgb(5, 26, 19);
+  }
+}
+
+// footer ends
+
+
+
+// media query starts-----------------------------------
+
+
+@import "media"
